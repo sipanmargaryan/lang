@@ -1,0 +1,35 @@
+[tool.poetry]
+name = "Lang"
+version = "0.1.0"
+description = ""
+authors = [""]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+python-dotenv = "^1.0.0"
+cachecontrol = "^0.12.7"
+fastapi = "^0.95.1"
+uvicorn = "^0.22.0"
+certifi = "^2022.12.7"
+requests = "^2.29.0"
+python-multipart = "^0.0.6"
+psycopg2-binary = "^2.9.6"
+SQLAlchemy = "^2.0.12"
+pydantic = "^1.10.7"
+openai = "^0.27.6"
+langchain = "^0.0.172"
+
+[tool.poetry.dev-dependencies]
+black = "^23.3.0"
+alembic = "^1.10.4"
+
+
+[tool.isort]
+extend_skip = ["alembic"]
+
+[tool.black]
+extend_exclude = ["alembic"]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

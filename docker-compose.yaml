@@ -1,0 +1,31 @@
+version: "3.7"
+
+services:
+  lang:
+    container_name: lang
+    image: lang
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+    ports:
+      - 8000:8000
+    volumes:
+      - .:/app
+    env_file:
+      - .env
+  postgres:
+    image: postgres:15.2-alpine
+    container_name: postgres-lang
+    restart: always
+    environment:
+      - POSTGRES_USER=lang
+      - POSTGRES_PASSWORD=pass111
+      - POSTGRES_DB=langdb
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    ports:
+      - "5432:5432"
+
+volumes:
+  postgres_data:
