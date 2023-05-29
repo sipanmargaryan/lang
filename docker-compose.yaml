@@ -7,9 +7,9 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.dev
-    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+    command: streamlit run main.py
     ports:
-      - 8000:8000
+      - 8501:8501
     volumes:
       - .:/app
     env_file:
@@ -19,9 +19,9 @@ services:
     container_name: postgres-lang
     restart: always
     environment:
-      - POSTGRES_USER=lang
+      - POSTGRES_USER=stream
       - POSTGRES_PASSWORD=pass111
-      - POSTGRES_DB=langdb
+      - POSTGRES_DB=streamdb
     volumes:
       - postgres_data:/var/lib/postgresql/data/
     ports:

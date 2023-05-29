@@ -8,8 +8,6 @@ authors = [""]
 python = "^3.10"
 python-dotenv = "^1.0.0"
 cachecontrol = "^0.12.7"
-fastapi = "^0.95.1"
-uvicorn = "^0.22.0"
 certifi = "^2022.12.7"
 requests = "^2.29.0"
 python-multipart = "^0.0.6"
@@ -18,6 +16,7 @@ SQLAlchemy = "^2.0.12"
 pydantic = "^1.10.7"
 openai = "^0.27.6"
 langchain = "^0.0.172"
+streamlit = "1.22.0"
 
 [tool.poetry.dev-dependencies]
 black = "^23.3.0"

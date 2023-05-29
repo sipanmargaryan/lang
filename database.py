@@ -1,0 +1,3 @@
+from settings import DB_HOST, DB_PASSWORD, DB_PORT, DB_USER, DB_NAME
+
+DATABASE_URL = f"postgresql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
