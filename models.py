@@ -13,7 +13,7 @@ class Product(Base):
     id = Column(Integer, primary_key=True)
     name = Column(String)
     description = Column(String)
-    price = Column(String)
+    price = Column(Integer)
 
 
 class ShoppingCard(Base):

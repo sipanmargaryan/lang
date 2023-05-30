@@ -1,10 +1,10 @@
-RUN=docker-compose run --rm lang
+RUN=docker compose run --rm lang
 
 all:
-	docker-compose build
+	docker compose build
 
 run:
-	docker-compose up
+	docker compose up
 
 migrations:
 	$(RUN) alembic revision --autogenerate

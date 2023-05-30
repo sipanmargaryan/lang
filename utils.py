@@ -15,7 +15,7 @@ db_chain = SQLDatabaseChain.from_llm(llm, db, verbose=True, return_intermediate_
 
 def get_products_list(query: str) -> List[Dict]:
     template = """
-    {product}. return all fields from products table
+    {product}. for products search data in name, description and price fields. return all fields from products table
     """
     prompt = PromptTemplate(
         input_variables=["product"],
