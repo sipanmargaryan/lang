@@ -5,9 +5,21 @@ from langchain.memory import ConversationBufferMemory
 
 from database import DATABASE_URL
 
+class FilteredSQLDatabaseChain(SQLDatabaseChain):
+    # def __init__(self, *args, filter_fn=None, **kwargs):
+    #     super().__init__(*args, **kwargs)
+    #     self.filter_fn = filter_fn
+    
+    def run(self, input_text):
+        result = super().run(input_text)
+        print(result)
+        # if self.filter_fn is not None:
+        #     result["sql_result"] = self.filter_fn(result["sql_result"])
+        # return result
+    
 db = SQLDatabase.from_uri(DATABASE_URL)
 llm = OpenAI(temperature=0, verbose=True)
-sql_chain = SQLDatabaseChain.from_llm(llm, db, verbose=True, return_intermediate_steps=True)
+sql_chain = FilteredSQLDatabaseChain.from_llm(llm, db, verbose=True, return_intermediate_steps=True)
 
 sql_tool = Tool(
     name='Products DB',
